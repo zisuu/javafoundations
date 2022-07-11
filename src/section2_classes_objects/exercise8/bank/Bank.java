@@ -5,8 +5,8 @@ package section2_classes_objects.exercise8.bank;
 //can.
 
 public class Bank {
-
-    public void accessVault(Vault vault){
-        vault.toString();
+    private String name;
+    void accessVault(){
+        System.out.println("You're in the vault now");
     }
 }
