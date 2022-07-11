@@ -4,4 +4,10 @@ package section2_classes_objects;
 
 public class Exercise6 {
 
+    public static void callMethod(){
+    }
+
+    public static void main(String[] args) {
+        Exercise6.callMethod();
+    }
 }
