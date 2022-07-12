@@ -1,4 +1,4 @@
-package section3_working_with_text.People;
+package section3_working_with_text;
 
 public class Length {
     public static void main(String[] args) {
