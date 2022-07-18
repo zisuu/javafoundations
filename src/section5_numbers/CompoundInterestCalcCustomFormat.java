@@ -1,12 +1,11 @@
 package section5_numbers;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.Locale;
 
-public class CompoundInterestCalc {
+public class CompoundInterestCalcCustomFormat {
 
     private static final NumberFormat moneyFormatter = NumberFormat.getCurrencyInstance();
     private static final NumberFormat percentFormatter = NumberFormat.getPercentInstance();
@@ -23,7 +22,11 @@ public class CompoundInterestCalc {
     }
 
     public static void main(String[] args) throws ParseException {
-        BigDecimal balance = CompoundInterestCalc.calculate("$10,000", "8%",10, "$1,000");
-        System.out.println(moneyFormatter.format(balance));
+        DecimalFormat df = new DecimalFormat("$#,###.00;$(#)");
+        DecimalFormat pf = new DecimalFormat("#%");
+        BigDecimal balance = CompoundInterestCalcCustomFormat.calculate("$10,000", "8%",10, "$1,000");
+        //System.out.println(df.format(balance));
+        //System.out.println(pf.format(.08));
+        System.out.printf("$%,(.2f%n", balance);
     }
 }
