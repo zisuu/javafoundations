@@ -1,5 +1,9 @@
 package section5_numbers;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -63,6 +67,44 @@ public class MathStuff {
         System.out.println(calcCentripetalAccel(1.67, 0.8));
         System.out.println(calcCentripetalForce(.2, 3.504));
         System.out.println(calcCentripetalForce(0.2, 0.8, 3));
+
+        int num1 = 3;
+        int num2 = 3;
+        System.out.println(num1 == num2);
+        int num3 = 4;
+        int num4 = 3;
+        System.out.println(num3 > num4);
+        System.out.println(num3 != num4);
+
+
+        float numA = 2.15f;
+        float numB = 1.10f;
+        System.out.println(numA - numB); // by default you should go with the primitives, if the accuracy is good enough
+
+        BigDecimal num5 = new BigDecimal("2.15");
+        BigDecimal num6 = new BigDecimal("1.10");
+        System.out.println(num5.subtract(num6));
+
+        System.out.println(new BigDecimal("0.4123221").add(new BigDecimal("5.123")));
+        System.out.println(new BigDecimal("0.4123221").subtract(new BigDecimal("5.123")));
+        System.out.println(new BigDecimal("0.4123221").multiply(new BigDecimal("5.123")));
+
+        MathContext mc = new MathContext(4, RoundingMode.HALF_UP);
+        System.out.println(new BigDecimal("0.4123221").divide(new BigDecimal("5.123"), mc)); //divide needs a MathContext in which you tell java how many digits you want
+        System.out.println(new BigDecimal("0.4123221").sqrt(mc));
+        System.out.println(new BigDecimal("0.4123221").sqrt(mc));
+        System.out.println(new BigDecimal("7").max(new BigDecimal("13")));
+        System.out.println(new BigDecimal("2").remainder(new BigDecimal(8)));
+
+
+        BigDecimal bigD1 = new BigDecimal(1024); // not good, because this frist creates a double, better use as a String:
+        BigDecimal bigD2 = new BigDecimal("1024"); // not good, because this frist creates a double, better use as a String:
+        byte b = bigD2.byteValue();
+        System.out.println(b); // exceeds the range of byte
+        System.out.println(bigD2.doubleValue());
+        System.out.println(bigD2.toString());
+
+        BigInteger bigI1 = new BigInteger("12349343"); // can represent much bigger Ints, if long range is not big enough you can use Big Integer
     }
 
     /**
@@ -94,4 +136,5 @@ public class MathStuff {
         double centripetalForce = calcCentripetalForce(mass, centripetalAccel);
         return centripetalForce;
     }
+
 }
