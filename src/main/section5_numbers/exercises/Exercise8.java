@@ -1,13 +1,6 @@
 package section5_numbers.exercises;
 
-import section5_numbers.CompoundInterestCalcCustomFormat;
-
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.Locale;
 
 /**
  * Use printf() to format the following inputs to print out the following outputs
