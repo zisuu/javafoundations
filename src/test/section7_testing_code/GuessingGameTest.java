@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GuessingGameTest {
 
@@ -26,14 +27,14 @@ public class GuessingGameTest {
     @Test
     public void testOneWrongNegGuessSituation(){
         String message = game.guess(-5);
-        assertEquals("You didn't get it", message);
+        assertEquals("You didn't get it - you're too low", message);
     }
 
     @Test
     public void testOneWrongPosGuessSituation(){
         int randomNum = game.getRandomNumber();
         String message = game.guess(randomNum +1);
-        assertEquals("You didn't get it", message);
+        assertEquals("You didn't get it - you're too high", message);
     }
 
     @RepeatedTest(10)
@@ -55,12 +56,27 @@ public class GuessingGameTest {
     }
 
     @Test
+    public void testTenWrongGuesses(){
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        String message = game.guess(-3);
+        assertEquals("You are limited to only 4 tries. Your Game is over.", message);
+    }
+
+    @Test
     public void testFourWrongGuesses(){
         game.guess(-3);
         game.guess(-3);
         game.guess(-3);
         String message = game.guess(-3);
-        assertEquals("You didn't get it and you've had four tries. Game over.", message);
+        assertEquals("You didn't get it and you've had 4 tries. Game over.", message);
     }
 
     @Test
@@ -79,7 +95,8 @@ public class GuessingGameTest {
         game.guess(-3);
         int  correctAnswer = game.getRandomNumber();
         String message = game.guess(correctAnswer);
-        assertEquals("You got it in 3 tries", message);
+        assertTrue(message.contains(" 3 "), "should indicate 3 tries");
+        assertTrue(message.contains("You got it"), "should indicate that we got it");
     }
 
 }
