@@ -87,5 +87,45 @@ public class BasicPart1 {
         System.out.println("Java Vendor: "+System.getProperty("java.vendor"));
         System.out.println("Java Vendor URL: "+System.getProperty("java.vendor.url"));
         System.out.println("Java Class Path: "+System.getProperty("java.class.path")+"\n");
+
+        /**
+         * 32. Write a Java program to compare two numbers. Go to the editor
+         * Input Data:
+         * Input first integer: 25
+         * Input second integer: 39
+         * Expected Output
+         *
+         * 25 != 39
+         * 25 < 39
+         * 25 <= 39
+         */
+        int first = 25;
+        int second = 39;
+        if (first != second) {
+            System.out.println(first + " != " + second);
+        };
+        if (first < second) {
+            System.out.println(first + " < " + second);
+        };
+        if (first <= second) {
+            System.out.println(first + " <= " + second);
+        };
+
+        /**
+         * 33. Write a Java program and compute the sum of the digits of an integer. Go to the editor
+         * Input Data:
+         * Input an integer: 25
+         * Expected Output
+         *
+         * The sum of the digits is: 7
+         */
+
+        int a33 = 25;
+        int sum = 0;
+        String a33Str = String.valueOf(a33);
+        for (int i = 0; i < a33Str.length(); i++){
+            sum += a33Str.charAt(i);
+        }
+        System.out.printf("The sum of the digits is: %d", sum);
     }
 }
