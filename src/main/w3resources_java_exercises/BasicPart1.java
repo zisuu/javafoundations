@@ -1,6 +1,10 @@
 package w3resources_java_exercises;
 
 import java.sql.SQLOutput;
+import java.util.Random;
+import java.util.random.RandomGenerator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BasicPart1 {
 
@@ -122,10 +126,67 @@ public class BasicPart1 {
 
         int a33 = 25;
         int sum = 0;
-        String a33Str = String.valueOf(a33);
-        for (int i = 0; i < a33Str.length(); i++){
-            sum += a33Str.charAt(i);
+        while (a33 > 0){
+            sum += a33 % 10;
+            a33 /= 10;
         }
-        System.out.printf("The sum of the digits is: %d", sum);
+        System.out.printf("The sum of the digits is: %d%n", sum);
+
+        /**
+         * 37. Write a Java program to reverse a string. Go to the editor
+         * Input Data:
+         * Input a string: The quick brown fox
+         * Expected Output
+         *
+         * Reverse string: xof nworb kciuq ehT
+         */
+        String input37 = "The quick brown fox";
+        StringBuilder builder = new StringBuilder();
+        for (int i = input37.length()-1; i >= 0 ; i--){
+            builder.append(input37.charAt(i));
+        }
+        System.out.println(builder);
+
+        /**
+         *38. Write a Java program to count the letters, spaces, numbers and other characters of an input string.
+         *  Expected Output
+         *
+         * The string is :  Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33
+         * letter: 23
+         * space: 9
+         * number: 10
+         * other: 6
+         */
+        String input38 = "Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33";
+        int letter = 0;
+        int space = 0;
+        int number = 0;
+        int other = 0;
+
+        for (int i = 0; i < input38.length() ; i++){
+            if (Character.isLetter(input38.charAt(i))){
+                letter++;
+            } else if (Character.isSpaceChar(input38.charAt(i))){
+                space++;
+            } else if (Character.isDigit(input38.charAt(i))){
+                number++;
+            } else {
+                other++;
+            }
+        }
+        System.out.printf("letter: %d%n", letter);
+        System.out.printf("space: %d%n", space);
+        System.out.printf("number: %d%n", number);
+        System.out.printf("other: %d%n", other);
+
+        /**
+         * 41. Write a Java program to print the ascii value of a given character. Go to the editor
+         * Expected Output
+         *
+         * The ASCII value of Z is :90
+         */
+        int temp2 = 'Z';
+        System.out.println("The ASCII value of Z is :" + temp2);
+
     }
 }
