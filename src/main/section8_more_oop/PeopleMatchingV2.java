@@ -9,7 +9,7 @@ public class PeopleMatchingV2 {
         public static void main(String[] args) {
             String peopleText = """
             Flinstone, Fred, 1/1/1900, Programmer, {locpd=2000,yoe=10,iq=140}
-            Flinstone2, Fred, 1/1/1900, Programmer, {locpd=1300,yoe=10,iq=100}
+            Flinstone2, Fred, 1/1/1900, Programmerzzzzz, {locpd=1300,yoe=10,iq=100}
             Flinstone3, Fred, 1/1/1900, Programmer, {locpd=2300,yoe=10,iq=105}
             Flinstone4, Fred, 1/1/1900, Programmer, {locpd=1630,yoe=10,iq=115}
             Flinstone5, Fred, 1/1/1900, Programmer, {locpd=5,yoe=10,iq=100}
@@ -26,24 +26,17 @@ public class PeopleMatchingV2 {
             Rubble, Betty, 4/4/1915, CEO, {avgStockPrice=300}
             """;
 
-            String peopleRegex = "(?<lastName>\\w+),\\s*(?<firstName>\\w+),\\s*(?<dob>\\d{1,2}/\\d{1,2}/\\d{4}),\\s*(?<role>\\w+)(?:,\\s*\\{(?<details>.*)\\})?\\n";
-            Pattern peoplePat = Pattern.compile(peopleRegex);
-            Matcher peopleMat = peoplePat.matcher(peopleText);
+            Matcher peopleMat = Employee.PEOPLE_PAT.matcher(peopleText);
 
             int totalSalaries = 0;
             Employee employee = null;
             while (peopleMat.find()) {
-                employee = switch (peopleMat.group("role")) {
-                    case "Programmer" -> new Programmer(peopleMat.group());
-                    case "Manager" -> new Manager(peopleMat.group());
-                    case "Analyst" -> new Analyst(peopleMat.group());
-                    case "CEO" -> new CEO(peopleMat.group());
-                    default -> new Employee(peopleMat.group());
-                };
+                employee = Employee.createEmployee(peopleMat.group());
                 System.out.println(employee.toString());
                 totalSalaries += employee.getSalary();
             }
             NumberFormat formatMoney = NumberFormat.getCurrencyInstance();
             System.out.printf("The total payout should be %s%n", formatMoney.format(totalSalaries));
-    }
+        }
+
 }

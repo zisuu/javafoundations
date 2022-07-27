@@ -25,4 +25,6 @@ public class Programmer extends Employee {
     public int getSalary() {
         return 3000 + linesOfCode * yearsOfExp * iq;
     }
+
+
 }
