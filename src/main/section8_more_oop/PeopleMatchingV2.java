@@ -35,6 +35,7 @@ public class PeopleMatchingV2 {
             IEmployee employee = null;
             while (peopleMat.find()) {
                 employee = EmployeeV2.createEmployee(peopleMat.group());
+
                 /**
                  * compare classes:
                  */
@@ -49,17 +50,17 @@ public class PeopleMatchingV2 {
                 /**
                  * compare class option 2
                  */
-                if (employee instanceof Programmer prg) {
-                    System.out.println(prg.getIq());
-                } else if (employee instanceof Manager man) {
-                    System.out.println(man.toString());
-                } else if (employee instanceof Analyst ana) {
-                    System.out.println(ana.getBonus());
-                } else if (employee instanceof CEO ceo) {
-                    System.out.println(ceo.getSalary());
-                } else {
-                    System.out.println("Default");
-                }
+//                if (employee instanceof Programmer prg) {
+//                    System.out.println(prg.getIq());
+//                } else if (employee instanceof Manager man) {
+//                    System.out.println(man.toString());
+//                } else if (employee instanceof Analyst ana) {
+//                    System.out.println(ana.getBonus());
+//                } else if (employee instanceof CEO ceo) {
+//                    System.out.println(ceo.getSalary());
+//                } else {
+//                    System.out.println("Default");
+//                }
 
                 System.out.println(employee.toString());
                 totalSalaries += employee.getSalary();
