@@ -3,8 +3,7 @@ package section8_more_oop;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Programmer extends Employee {
-
+public class Programmer extends EmployeeV2 implements Chef {
 
     private int linesOfCode = 0;
     private int yearsOfExp = 0;
@@ -26,5 +25,27 @@ public class Programmer extends Employee {
         return 3000 + linesOfCode * yearsOfExp * iq;
     }
 
+    public int getLinesOfCode() {
+        return linesOfCode;
+    }
 
+    public void setLinesOfCode(int linesOfCode) {
+        this.linesOfCode = linesOfCode;
+    }
+
+    public int getYearsOfExp() {
+        return yearsOfExp;
+    }
+
+    public void setYearsOfExp(int yearsOfExp) {
+        this.yearsOfExp = yearsOfExp;
+    }
+
+    public int getIq() {
+        return iq;
+    }
+
+    public void setIq(int iq) {
+        this.iq = iq;
+    }
 }

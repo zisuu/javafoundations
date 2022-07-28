@@ -3,7 +3,7 @@ package section8_more_oop;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Analyst extends Employee {
+public class Analyst extends EmployeeV2 {
     private int projectCount = 0;
 
     private final String analystRegex = "\\w+\\=(?<projectCount>\\w+)";

@@ -3,7 +3,7 @@ package section8_more_oop;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Manager extends Employee {
+public class Manager extends EmployeeV2 {
 
     private int orgSize = 0;
     private int dr = 0;

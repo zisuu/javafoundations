@@ -1,6 +1,7 @@
 package section8_more_oop;
 
 import java.text.NumberFormat;
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,17 +27,50 @@ public class PeopleMatchingV2 {
             Rubble, Betty, 4/4/1915, CEO, {avgStockPrice=300}
             """;
 
-            Matcher peopleMat = Employee.PEOPLE_PAT.matcher(peopleText);
+            Matcher peopleMat = EmployeeV2.PEOPLE_PAT.matcher(peopleText);
+            Flyer flyer = new CEO("");
+            flyer.fly();
 
             int totalSalaries = 0;
-            Employee employee = null;
+            IEmployee employee = null;
             while (peopleMat.find()) {
-                employee = Employee.createEmployee(peopleMat.group());
+                employee = EmployeeV2.createEmployee(peopleMat.group());
+                /**
+                 * compare classes:
+                 */
+//                if (employee.getClass().equals(Programmer.class)){
+//                    System.out.println();
+//                } else if (employee.getClass().equals(Manager.class)) {
+//                    System.out.println();
+//                } else {
+//                    System.out.println("Default");
+//                }
+
+                /**
+                 * compare class option 2
+                 */
+                if (employee instanceof Programmer prg) {
+                    System.out.println(prg.getIq());
+                } else if (employee instanceof Manager man) {
+                    System.out.println(man.toString());
+                } else if (employee instanceof Analyst ana) {
+                    System.out.println(ana.getBonus());
+                } else if (employee instanceof CEO ceo) {
+                    System.out.println(ceo.getSalary());
+                } else {
+                    System.out.println("Default");
+                }
+
                 System.out.println(employee.toString());
                 totalSalaries += employee.getSalary();
             }
             NumberFormat formatMoney = NumberFormat.getCurrencyInstance();
             System.out.printf("The total payout should be %s%n", formatMoney.format(totalSalaries));
+
+            Weirdo larry = new Weirdo("david", "larry", LocalDate.of(1000,10,10));
+            larry.fristName();
         }
+
+
 
 }
