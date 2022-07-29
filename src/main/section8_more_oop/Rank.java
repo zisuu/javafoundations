@@ -21,10 +21,6 @@ public enum Rank {
         this.value = value;
     }
 
-    //Rank KING = new Rank("KING");
-    //Rank QUEEN = new Rank("QUEEN");
-    //Rank JACK = new Rank("JACK");
-    // assertEquals(10, Rank.KING.getValue());
     public int getValue() {
         return value;
     }
