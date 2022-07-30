@@ -10,14 +10,24 @@ package section8_more_oop.exercises;
  */
 public class Ex7 {
 
-    int[][] myPosition;
-
-
-    public static char getXCoordinate (int position) {
-        return (char)(position + 96);
+    public static void main(String[] args) {
+        System.out.println(getArrayCoords("a8"));
+        System.out.println(getArrayCoords("h1"));
+        System.out.println(getArrayCoords("g5"));
+        System.out.println(getArrayCoords("d4"));
     }
 
-    public static int getYCoordinate (int input) {
-        return 8 - input;
+    public static String getArrayCoords(String input) {
+        int x = getXCoordinate(input.charAt(0));
+        int y = getYCoordinate(Integer.parseInt(input.substring(1)));
+        return String.format("%d, %d", x, y);
     }
+    public static int getXCoordinate (char inputX) {
+        return inputX - 97;
+    }
+
+    public static int getYCoordinate (int inputY) {
+        return 8 - inputY;
+    }
+
 }

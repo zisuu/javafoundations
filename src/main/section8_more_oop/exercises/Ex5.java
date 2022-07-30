@@ -11,7 +11,6 @@ package section8_more_oop.exercises;
  */
 public class Ex5 {
 
-    private static final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     public static char convert(int position) {
 //        char returnChar = alphabet.charAt(position - 1);
