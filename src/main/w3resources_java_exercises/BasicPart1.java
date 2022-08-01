@@ -1,7 +1,15 @@
 package w3resources_java_exercises;
 
+import java.io.Console;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLOutput;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.random.RandomGenerator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -188,5 +196,54 @@ public class BasicPart1 {
         int temp2 = 'Z';
         System.out.println("The ASCII value of Z is :" + temp2);
 
+        /**
+         * 42. Write a Java program to input and display your password. Go to the editor
+         * Expected Output
+         *
+         * Input your Password:
+         * Your password was: abc@123
+         */
+
+        //char[] input = System.console().readPassword("Input your Password: ");
+        //System.out.printf("Your password was: %s%n", String.valueOf(input));
+
+        /**
+         * 44. Write a Java program that accepts an integer (n) and computes the value of n+nn+nnn. Go to the editor
+         * Sample Output:
+         *
+         * Input number: 5
+         * 5 + 55  + 555
+         */
+//        Console cons;
+//        if ((cons = System.console()) != null) {
+//            int number44 = 0;
+//            try {
+//                number44 = Integer.parseInt(cons.readLine("Input number: "));
+//                System.out.printf("%d + %d%d + %d%d%d%n", number44,number44,number44,number44,number44,number44);
+//            } catch (NumberFormatException e) {
+//                throw new RuntimeException(e);
+//            }
+//        } else {
+//            throw new RuntimeException("You need to enter a number");
+//        }
+        /**
+         * 45. Write a Java program to find the size of a specified file.
+         * Sample Output:
+         *
+         * /home/students/abc.txt  : 0 bytes
+         * /home/students/test.txt : 0 bytes
+         */
+        try {
+            // size in bytes
+            String filepath = "/Users/Dave/IdeaProjects/javafoundations/src/main/w3resources_java_exercises/BasicPart1.java";
+            Path path = Paths.get(filepath);
+            long bytes = Files.size(path);
+            System.out.printf("%s : %d bytes %n", filepath, bytes);
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
