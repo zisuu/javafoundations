@@ -1,26 +1,39 @@
 package section8_more_oop.exercises.ex8;
 
-import static section8_more_oop.exercises.ex8.ChessPiece.Color.WHITE;
-import static section8_more_oop.exercises.ex8.ChessPiece.Color.BLACK;
 
 public class Pawn extends ChessPiece {
     private boolean hasMoved = false;
 
-    private String color;
-
-    public Pawn(String color) {
-
+    public Pawn(Color color) {
+        super(color);
     }
 
     public Coordinates[] getValidMoves() {
-        // WHITE: start bei [a-h]2 -> +1 = 3,4,5,6.. bis max. [a-h]8, erster Move x+2, +1 Diagonal nur möglich, wenn eine Figur des Gegners dort steht.
-        // BLACK: start bei [a-h]7 -> -1 = 6,5,4,3.. bis max. [a-h]1, erster Move x+2, +1 Diagonal nur möglich, wenn eine Figur des Gegners dort steht.
+
         int numOfPossibleMoves = hasMoved ? 3 : 4;
         Coordinates[] validMoves = new Coordinates[numOfPossibleMoves];
 
-        Coordinates forwardOne = getCoordinates();
+        Coordinates forwardOne = getCoordinates().getOffset(0, calcYWithDirFactor(-1));
+        validMoves[0] = forwardOne;
 
-        return null;
+//        Coordinates diagonallyRightOne = getCoordinates().getOffset(1, calcYWithDirFactor(-1));
+//        validMoves[1] = diagonallyRightOne;
+//
+//        Coordinates diagonallyLeftOne = getCoordinates().getOffset(-1, calcYWithDirFactor(-1));
+//        validMoves[2] = diagonallyLeftOne;
+//
+//        if (!hasMoved) {
+//            Coordinates forwardTwo = getCoordinates().getOffset(0, calcYWithDirFactor(-2));
+//            validMoves[3] = forwardTwo;
+//        }
+        return validMoves;
     }
 
+    @Override
+    public void setCoordinates(Coordinates coordinates) {
+        if (this.coordinates != null) {
+            hasMoved = true;
+        }
+        super.setCoordinates(coordinates);
+    }
 }

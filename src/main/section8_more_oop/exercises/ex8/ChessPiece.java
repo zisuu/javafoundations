@@ -1,30 +1,32 @@
 package section8_more_oop.exercises.ex8;
 
-public class ChessPiece {
+import static section8_more_oop.exercises.ex8.ChessPiece.Color.WHITE;
 
-    class Color {
+public abstract class ChessPiece {
+    protected Coordinates coordinates;
+    protected Color color;
 
-        private String color;
-        public static final String WHITE = "white";
-        public static final String BLACK = "black";
-
-        public String getColor() {
-            return color;
-        }
-
-        public void setColor(String color) {
-            this.color = color;
-        }
+    public ChessPiece(Color color) {
+        this.color = color;
     }
-    private String position;
-    private Coordinates coordinates;
 
     public void setCoordinates(Coordinates coordinates) {
-        this.position = position;
         this.coordinates = coordinates;
     }
 
     public Coordinates getCoordinates() {
         return coordinates;
+    }
+
+    protected int calcYWithDirFactor(int yOffset) {
+        int dirFactor = color == WHITE ? 1 : -1;
+        return yOffset * dirFactor;
+    }
+
+    abstract Coordinates[] getValidMoves();
+
+    enum Color {
+        BLACK,
+        WHITE;
     }
 }

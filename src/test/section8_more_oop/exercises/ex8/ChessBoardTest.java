@@ -1,11 +1,9 @@
 package section8_more_oop.exercises.ex8;
 
 import org.junit.jupiter.api.Test;
-import section8_more_oop.exercises.ex8.ChessBoard;
-import section8_more_oop.exercises.ex8.Pawn;
 
-import static section8_more_oop.exercises.ex8.ChessPiece.Color.WHITE;
 import static section8_more_oop.exercises.ex8.ChessPiece.Color.BLACK;
+import static section8_more_oop.exercises.ex8.ChessPiece.Color.WHITE;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ChessBoardTest {
@@ -85,12 +83,12 @@ class ChessBoardTest {
 //        assertTrue(elementExists(board.getWhiteCapturedPieces(), pawn), "Pawn should now be among white's captured pieces");
 //        assertEquals(knight, board.getPieceAtCoords("d3"), "Knight should now be @ d3");
 //    }
-
-    private boolean elementExists(Object[] array, Object element) {
-        for (Object object : array) {
-            if (object == element) return true;
-        }
-        return false;
-    }
+//
+//    private boolean elementExists(Object[] array, Object element) {
+//        for (Object object : array) {
+//            if (object == element) return true;
+//        }
+//        return false;
+//    }
 
 }

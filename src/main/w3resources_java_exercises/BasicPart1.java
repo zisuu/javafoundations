@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLOutput;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.random.RandomGenerator;
@@ -245,5 +246,14 @@ public class BasicPart1 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        /**
+         * 46. Write a Java program to display the system time. Go to the editor
+         * Sample Output:
+         *
+         * Current Date time: Fri Jun 16 14:17:40 IST 2017
+         */
+//        DateTimeFormatter dtf;
+//        dtf = System.out.println();
     }
 }
