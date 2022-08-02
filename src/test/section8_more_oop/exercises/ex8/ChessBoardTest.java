@@ -27,20 +27,20 @@ class ChessBoardTest {
         Knight foundKnight = (Knight) board.getPieceAtCoords("c1");
         assertEquals(knight, foundKnight);
     }
-//
-//    @Test
-//    public void canMoveC1KnightToD3() {
-//        ChessBoard board = new ChessBoard();
-//        Knight knight = new Knight(WHITE);
-//        board.add(knight, "c1");
-//        assertEquals(knight, board.getPieceAtCoords("c1"), "Knight should initially be @ c1");
-//
-//        board.move(knight, "d3");
-//
-//        assertNull(board.getPieceAtCoords("c1"), "After move, Knight should no longer be @ c1");
-//        assertEquals(knight, board.getPieceAtCoords("d3"), "Knight should now be @ d3");
-//    }
-//
+
+    @Test
+    public void canMoveC1KnightToD3() {
+        ChessBoard board = new ChessBoard();
+        Knight knight = new Knight(WHITE);
+        board.add(knight, "c1");
+        assertEquals(knight, board.getPieceAtCoords("c1"), "Knight should initially be @ c1");
+
+        board.move(knight, "d3");
+
+        assertNull(board.getPieceAtCoords("c1"), "After move, Knight should no longer be @ c1");
+        assertEquals(knight, board.getPieceAtCoords("d3"), "Knight should now be @ d3");
+    }
+
 //    @Test()
 //    public void canNotMoveC1KnightToInvalidSquare() {
 //        ChessBoard board = new ChessBoard();

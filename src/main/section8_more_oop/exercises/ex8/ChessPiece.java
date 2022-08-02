@@ -19,7 +19,7 @@ public abstract class ChessPiece {
     }
 
     protected int calcYWithDirFactor(int yOffset) {
-        int dirFactor = color == WHITE ? 1 : -1;
+        int dirFactor = color == WHITE ? -1 : 1;
         return yOffset * dirFactor;
     }
 
