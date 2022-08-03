@@ -37,6 +37,16 @@ public class ChessBoard {
         performActualMove(piece, destCoords, origin, destination);
     }
 
+    private boolean destinationIsOccupiedByEnemy(ChessPiece piece, Coordinates destination) {
+        ChessPiece destinationPiece = internalBoard[destination.getX()][destination.getY()];
+        return destinationPiece != null && destinationPiece.color != piece.color;
+    }
+
+    private boolean destinationIsOccupiedByFriendly(ChessPiece piece, Coordinates destination) {
+        ChessPiece destinationPiece = internalBoard[destination.getX()][destination.getY()];
+        return destinationPiece != null && destinationPiece.color == piece.color;
+    }
+
     private void performActualMove(ChessPiece piece, String destCoords, Coordinates origin, Coordinates destination) {
         if (destination.isPermittedMove(piece.getValidMoves())) {
             internalBoard[origin.getX()][origin.getY()] = null; // remove from original square
@@ -48,5 +58,9 @@ public class ChessBoard {
     private ChessPiece[] addToCapturedPieces(ChessPiece capturedPiece, ChessPiece[] capturedPieces) {
         ChessPiece[] tmpCaptures = Arrays.copyOf(capturedPieces, capturedPieces.length +1);
         return new ChessPiece[0];
+    }
+
+    public ChessPiece[] getWhiteCapturedPieces() {
+        return whiteCapturedPieces;
     }
 }
