@@ -1,5 +1,6 @@
 package w3resources_java_exercises;
 
+import javax.swing.text.DateFormatter;
 import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +9,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLOutput;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.random.RandomGenerator;
@@ -253,7 +256,155 @@ public class BasicPart1 {
          *
          * Current Date time: Fri Jun 16 14:17:40 IST 2017
          */
-//        DateTimeFormatter dtf;
-//        dtf = System.out.println();
+        String pattern = "EEE MMM dd HH:mm:ss z yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        String date = simpleDateFormat.format(new Date());
+        System.out.println("Current Date time: " +date);
+
+        /**
+         * 47. Write a Java program to display the current date time in specific format. Go to the editor
+         * Sample Output:
+         *
+         * Now: 2017/06/16 08:52:03.066
+         */
+        String pattern47 = "yyyy/MM/dd HH:mm:ss.SSS";
+        SimpleDateFormat simpleDateFormat47 = new SimpleDateFormat(pattern47);
+
+        String date47 = simpleDateFormat47.format(new Date());
+        System.out.println("Current Date time: " +date47);
+
+        /**
+         * 48. Write a Java program to print the odd numbers from 1 to 99. Prints one number per line. Go to the editor
+         * Sample Output:
+         *
+         * 1
+         * 3
+         * 5
+         * 7
+         * 9
+         * 11
+         * ....
+         *
+         * 91
+         * 93
+         * 95
+         * 97
+         * 99
+         */
+        for (int i = 0; i < 100; i++) {
+            if (i % 2 != 0) {
+                System.out.println(i);
+            }
+        }
+
+        /**
+         * 49. Write a Java program to accept a number and check the number is even or not. Prints 1 if the number is even or 0 if the number is odd. Go to the editor
+         * Sample Output:
+         *
+         * Input a number: 20
+         * 1
+         */
+
+//        String input49 = System.console().readLine("Input a number: ");
+//        try {
+//            int number49 = Integer.parseInt(input49);
+//            int result49 = number49 % 2 == 0 ? 1 : 0;
+//                System.out.println(result49);
+//        } catch (NumberFormatException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        /**
+         * 50. Write a Java program to print numbers between 1 to 100 which are divisible by 3, 5 and by both. Go to the editor
+         * Sample Output:
+         *
+         * Divided by 3:
+         * 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57
+         * , 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99,
+         *
+         * Divided by 5:
+         * 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
+         * 95,
+         *
+         * Divided by 3 & 5:
+         * 15, 30, 45, 60, 75, 90,
+         */
+        StringBuilder sbDividedByThree = new StringBuilder();
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                sbDividedByThree.append(i + ", ");
+            }
+        }
+        System.out.println("Divided by 3: " + sbDividedByThree.toString());
+
+        StringBuilder sbDividedByFife = new StringBuilder();
+        for (int i = 1; i < 100; i++) {
+            if (i % 5 == 0) {
+                sbDividedByFife.append(i + ", ");
+            }
+        }
+        System.out.println("Divided by 5: " + sbDividedByFife.toString());
+
+        StringBuilder sbDividedByFifeAndThree = new StringBuilder();
+        for (int i = 1; i < 100; i++) {
+            if (i % 5 == 0 && i % 3 == 0) {
+                sbDividedByFifeAndThree.append(i + ", ");
+            }
+        }
+        System.out.println("Divided by 3 and 5 : " +sbDividedByFifeAndThree);
+
+        /**
+         * 52. Write a Java program to calculate the sum of two integers and return true if the sum is equal to a third integer. Go to the editor
+         * Sample Output:
+         *
+         * Input the first number : 5
+         * Input the second number: 10
+         * Input the third number : 15
+         * The result is: true
+         */
+//        String input52_1 = System.console().readLine("Input the first number: ");
+//        String input52_2 = System.console().readLine("Input the second number: ");
+//        String input52_3 = System.console().readLine("Input the third number: ");
+//        try {
+//            int number52_1 = Integer.parseInt(input52_1);
+//            int number52_2 = Integer.parseInt(input52_2);
+//            int number52_3 = Integer.parseInt(input52_3);
+//            boolean result = false;
+//            if (number52_1 + number52_2 == number52_3) {
+//                result = true;
+//            }
+//            System.out.println("The result is: " + result);
+//        } catch (NumberFormatException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        /**
+         * 53. Write a Java program that accepts three integers from the user and return true if the second number is
+         * greater than first number and third number is greater than second number.
+         * If "abc" is true second number does not need to be greater than first number. Go to the editor
+         * Sample Output:
+         *
+         * Input the first number : 5
+         * Input the second number: 10
+         * Input the third number : 15
+         * The result is: true
+         */
+        String input53_1 = System.console().readLine("Input the first number: ");
+        String input53_2 = System.console().readLine("Input the second number: ");
+        String input53_3 = System.console().readLine("Input the third number: ");
+        try {
+            int number53_1 = Integer.parseInt(input53_1);
+            int number53_2 = Integer.parseInt(input53_2);
+            int number53_3 = Integer.parseInt(input53_3);
+            boolean result = false;
+            if (number53_1 < number53_2 && number53_2 < number53_3) {
+                result = true;
+            }
+            System.out.println("The result is: " + result);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
