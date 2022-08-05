@@ -9,6 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLOutput;
+import java.sql.Time;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -19,7 +21,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BasicPart1 {
-
     public static void main(String[] args) {
         /**
          * 1. Write a Java program to print 'Hello' on screen and then print your name on a separate line. Go to the editor
@@ -390,21 +391,86 @@ public class BasicPart1 {
          * Input the third number : 15
          * The result is: true
          */
-        String input53_1 = System.console().readLine("Input the first number: ");
-        String input53_2 = System.console().readLine("Input the second number: ");
-        String input53_3 = System.console().readLine("Input the third number: ");
-        try {
-            int number53_1 = Integer.parseInt(input53_1);
-            int number53_2 = Integer.parseInt(input53_2);
-            int number53_3 = Integer.parseInt(input53_3);
-            boolean result = false;
-            if (number53_1 < number53_2 && number53_2 < number53_3) {
-                result = true;
+//        String input53_1 = System.console().readLine("Input the first number: ");
+//        String input53_2 = System.console().readLine("Input the second number: ");
+//        String input53_3 = System.console().readLine("Input the third number: ");
+//        try {
+//            int number53_1 = Integer.parseInt(input53_1);
+//            int number53_2 = Integer.parseInt(input53_2);
+//            int number53_3 = Integer.parseInt(input53_3);
+//            boolean result = false;
+//            if (number53_1 < number53_2 && number53_2 < number53_3) {
+//                result = true;
+//            }
+//            System.out.println("The result is: " + result);
+//        } catch (NumberFormatException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        /**
+         * 54. Write a Java program that accepts three integers from the user and return true if two or
+         * more of them (integers ) have the same rightmost digit. The integers are non-negative. Go to the editor
+         * Sample Output:
+         *
+         * Input the first number : 5
+         * Input the second number: 10
+         * Input the third number : 15
+         * The result is: true
+         */
+//        Scanner in54 = new Scanner(System.in);
+//        System.out.print("Input the first number : ");
+//        int x54 = in54.nextInt();
+//        System.out.print("Input the second number: ");
+//        int y54 = in54.nextInt();
+//        System.out.print("Input the third number : ");
+//        int z54 = in54.nextInt();
+//        System.out.print("The result is: " + test_last_digit54(x54, y54, z54,true));
+//        System.out.print("\n");
+
+        /**
+         * 55. Write a Java program to convert seconds to hour, minute and seconds. Go to the editor
+         * Sample Output:
+         *
+         * Input seconds: 86399
+         * 23:59:59
+         */
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Input seconds: ");
+//        int seconds = in.nextInt();
+//        int p1 = seconds % 60;
+//        int p2 = seconds / 60;
+//        int p3 = p2 % 60;
+//        p2 = p2 / 60;
+//        System.out.print( p2 + ":" + p3 + ":" + p1);
+//        System.out.print("\n");
+
+        /**
+         * 56. Write a Java program to find the number of values in a given range divisible by a given value.
+         * For example x = 5, y=20 and p =3, find the number of integers within the range x..y and that are
+         * divisible by p i.e. { i :x ≤ i ≤ y, i mod p = 0 }
+         * Sample Output:
+         *
+         * 5
+         */
+        int x = 5;
+        int y = 20;
+        int p = 3;
+        for (int i = x; i < y; i++) {
+            if (i % p == 0) {
+                System.out.println(i);
             }
-            System.out.println("The result is: " + result);
-        } catch (NumberFormatException e) {
-            throw new RuntimeException(e);
         }
 
+        /**
+         * 57. Write a Java program to accepts an integer and count the factors of the number. Go to the editor
+         * Sample Output:
+         *
+         * Input an integer: 25
+         * 3
+         */
     }
+//    public static boolean test_last_digit54(int p54, int q54, int r54, boolean xyz)
+//    {
+//        return (p54 % 10 == q54 % 10) || (p54 % 10 == r54 % 10) || (q54 % 10 == r54 % 10);
+//    }
 }
