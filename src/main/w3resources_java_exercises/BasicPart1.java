@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.random.RandomGenerator;
@@ -462,12 +463,82 @@ public class BasicPart1 {
         }
 
         /**
-         * 57. Write a Java program to accepts an integer and count the factors of the number. Go to the editor
+         * 58. Write a Java program to capitalize the first letter of each word in a sentence. Go to the editor
          * Sample Output:
          *
-         * Input an integer: 25
-         * 3
+         * Input a Sentence: the quick brown fox jumps over the lazy dog.
+         * The Quick Brown Fox Jumps Over The Lazy Dog.
          */
+        String word58 = "the quick brown fox jumps over the lazy dog.";
+        String[] words58 = word58.split(" ");
+        StringBuilder sb58 = new StringBuilder();
+
+        for (int i = 0; i < words58.length; i++) {
+            sb58.append(String.valueOf(words58[i].charAt(0)).toUpperCase());
+            sb58.append(words58[i].substring(1));
+            if (i != words58.length -1){
+                sb58.append(" ");
+            }
+        }
+        System.out.println(sb58.toString());
+
+        /**
+         * 59. Write a Java program to convert a given string into lowercase. Go to the editor
+         * Sample Output:
+         *
+         * Input a String: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+         * the quick brown fox jumps over the lazy dog.
+         */
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Input Text: ");
+//        String input59 = in.nextLine();
+//        System.out.println(input59.toLowerCase());
+        /**
+         * 60. Write a Java program to find the penultimate (next to last) word of a sentence. Go to the editor
+         * Sample Output:
+         *
+         * Input a String: The quick brown fox jumps over the lazy dog.
+         * Penultimate word: lazy
+         */
+//        Scanner in60 = new Scanner(System.in);
+//        System.out.print("Input Text: ");
+//        String input60 = in60.nextLine();
+//        String[] words60 = input60.split(" ");
+//        System.out.println(words60[words60.length -2]);
+
+        /**
+         * 61. Write a Java program to reverse a word. Go to the editor
+         * Sample Output:
+         *
+         * Input a word: dsaf
+         * Reverse word: fasd
+         */
+//        Scanner in61 = new Scanner(System.in);
+//        System.out.print("Input Text: ");
+//        String input61 = in61.nextLine();
+//        String result61 = "";
+//        for (int i = input61.length(); i > 0; i--) {
+//            result61 += String.valueOf(input61.charAt(i-1));
+//        }
+//        System.out.println(result61);
+
+        /**
+         * 62. Write a Java program that accepts three integer values and return true if one of them is 20 or more and less than the substractions of others. Go to the editor
+         * Sample Output:
+         *
+         * Input the first number : 15
+         * Input the second number: 20
+         * Input the third number : 25
+         * false
+         */
+        Scanner in62 = new Scanner(System.in);
+        System.out.print("Input the first number : ");
+        int x62 = in62.nextInt();
+        System.out.print("Input the second number: ");
+        int y62 = in62.nextInt();
+        System.out.print("Input the third number : ");
+        int z62 = in62.nextInt();
+        System.out.print((Math.abs(x62 - y62) >= 20 || Math.abs(y62 - z62) >= 20 || Math.abs(z62 - x62) >= 20));
     }
 //    public static boolean test_last_digit54(int p54, int q54, int r54, boolean xyz)
 //    {
