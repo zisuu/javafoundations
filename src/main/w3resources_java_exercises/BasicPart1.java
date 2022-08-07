@@ -531,14 +531,37 @@ public class BasicPart1 {
          * Input the third number : 25
          * false
          */
-        Scanner in62 = new Scanner(System.in);
+//        Scanner in62 = new Scanner(System.in);
+//        System.out.print("Input the first number : ");
+//        int x62 = in62.nextInt();
+//        System.out.print("Input the second number: ");
+//        int y62 = in62.nextInt();
+//        System.out.print("Input the third number : ");
+//        int z62 = in62.nextInt();
+//        System.out.print((Math.abs(x62 - y62) >= 20 || Math.abs(y62 - z62) >= 20 || Math.abs(z62 - x62) >= 20));
+
+        /**
+         * 63. Write a Java program that accepts two integer values from the user and return the larger values.
+         * However if the two values are the same, return 0 and return the smaller value if the two values have
+         * the same remainder when divided by 6.
+         * Sample Output:
+         *
+         * Input the first number : 12
+         * Input the second number: 13
+         * Result: 13
+         */
+        Scanner in63 = new Scanner(System.in);
         System.out.print("Input the first number : ");
-        int x62 = in62.nextInt();
+        int x63 = in63.nextInt();
         System.out.print("Input the second number: ");
-        int y62 = in62.nextInt();
-        System.out.print("Input the third number : ");
-        int z62 = in62.nextInt();
-        System.out.print((Math.abs(x62 - y62) >= 20 || Math.abs(y62 - z62) >= 20 || Math.abs(z62 - x62) >= 20));
+        int y63 = in63.nextInt();
+        int result = Math.max(x63, y63);
+        if (x63 == y63) {
+            result = 0;
+        } else if (x63 % 6 == y63 % 6) {
+            result = Math.min(x63, y63);
+        }
+        System.out.println(result);
     }
 //    public static boolean test_last_digit54(int p54, int q54, int r54, boolean xyz)
 //    {
