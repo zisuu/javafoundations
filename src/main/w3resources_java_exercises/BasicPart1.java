@@ -550,18 +550,40 @@ public class BasicPart1 {
          * Input the second number: 13
          * Result: 13
          */
-        Scanner in63 = new Scanner(System.in);
+//        Scanner in63 = new Scanner(System.in);
+//        System.out.print("Input the first number : ");
+//        int x63 = in63.nextInt();
+//        System.out.print("Input the second number: ");
+//        int y63 = in63.nextInt();
+//        int result = Math.max(x63, y63);
+//        if (x63 == y63) {
+//            result = 0;
+//        } else if (x63 % 6 == y63 % 6) {
+//            result = Math.min(x63, y63);
+//        }
+//        System.out.println(result);
+
+        /**
+         * 64. Write a Java program that accepts two integer values between 25 to 75 and return true if there
+         * is a common digit in both numbers. Go to the editor
+         * Sample Output:
+         *
+         * Input the first number : 35
+         * Input the second number: 45
+         * Result: true
+         */
+        Scanner in64 = new Scanner(System.in);
         System.out.print("Input the first number : ");
-        int x63 = in63.nextInt();
+        int x64 = in64.nextInt();
         System.out.print("Input the second number: ");
-        int y63 = in63.nextInt();
-        int result = Math.max(x63, y63);
-        if (x63 == y63) {
+        int y64 = in64.nextInt();
+        int result;
+        if (x64 == y64) {
             result = 0;
-        } else if (x63 % 6 == y63 % 6) {
-            result = Math.min(x63, y63);
+        } else if (x64 % 6 == y64 % 6) {
+            result = Math.min(x64, y64);
         }
-        System.out.println(result);
+        System.out.println();
     }
 //    public static boolean test_last_digit54(int p54, int q54, int r54, boolean xyz)
 //    {

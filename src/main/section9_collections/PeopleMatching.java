@@ -2,10 +2,7 @@ package section9_collections;
 
 import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 
 
@@ -44,13 +41,44 @@ public class PeopleMatching {
         System.out.println(employees.contains(myEmp));
         System.out.println(myEmp.getClass());
 
-        IEmployee employee1 = Employee.createEmployee("Flinstone5, Fred, 1/1/1900, Programmer, {locpd=5,yoe=10,iq=100}");
-        System.out.println(employees.contains(employee1));
-        System.out.println(employee1.getClass());
-        System.out.println(employee1 instanceof Employee);
+//        IEmployee employee1 = Employee.createEmployee("Flinstone5, Fred, 1/1/1900, Programmer, {locpd=5,yoe=10,iq=100}");
+//        System.out.println(employees.contains(employee1));
+//        System.out.println(employee1.getClass());
+//        System.out.println(employee1 instanceof Employee);
 
-//        List<String> undesirables = List.of("Wilma5", "Barney4", "Fred2");
-//        //List<String> undesirables = new ArrayList<>();
+        // ohne Lambda:
+//        employees.sort(new Comparator<IEmployee>() {
+//            @Override
+//            public int compare(IEmployee o1, IEmployee o2) {
+//                if (o1 instanceof Employee emp1 && o2 instanceof Employee emp2) {
+//                    int lnameResult = emp1.lastName.compareTo(emp2.lastName);
+//                    return lnameResult != 0? lnameResult : Integer.compare(emp1.getSalary(),emp2.getSalary());
+//                }
+//                return 0;
+//            }
+//        });
+
+        Collections.sort(employees, Comparator.naturalOrder());
+//        Collections.sort(employees,(o1, o2) -> {
+//            if (o1 instanceof Employee emp1 && o2 instanceof Employee emp2) {
+//                int lnameResult = emp1.lastName.compareTo(emp2.lastName);
+//                return lnameResult != 0? lnameResult : Integer.compare(emp1.getSalary(),emp2.getSalary());
+//            }
+//            return 0;
+//        });
+        // mit Lambda:
+//        employees.sort((o1, o2) -> {
+//            if (o1 instanceof Employee emp1 && o2 instanceof Employee emp2) {
+//                int lnameResult = emp1.lastName.compareTo(emp2.lastName);
+//                return lnameResult != 0? lnameResult : Integer.compare(emp1.getSalary(),emp2.getSalary());
+//            }
+//            return 0;
+//        });
+
+//        List<String> undesirablesList = List.of("Wilma5", "Barney4", "Fred2");
+//        List<String> undesirables = new ArrayList<>(undesirablesList);
+//        undesirables.sort(Comparator.naturalOrder());
+//        System.out.println(undesirables);
 ////        undesirables.add("Wilma5");
 ////        undesirables.add("Barney4");
 ////        undesirables.add("Fred2");
@@ -60,10 +88,10 @@ public class PeopleMatching {
 //        newStrings.addAll(undesirables);
 //
 //
-//        for (IEmployee worker : employees) {
-//            System.out.println(worker.toString());
-//            totalSalaries += worker.getSalary();
-//        }
+        for (IEmployee worker : employees) {
+            System.out.println(worker.toString());
+            totalSalaries += worker.getSalary();
+        }
 //        NumberFormat formatMoney = NumberFormat.getCurrencyInstance();
 //        System.out.printf("The total payout should be %s%n", formatMoney.format(totalSalaries));
 //

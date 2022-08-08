@@ -41,10 +41,10 @@ public abstract class Employee implements IEmployee {
                 case "Manager" -> new Manager(employeeText);
                 case "Analyst" -> new Analyst(employeeText);
                 case "CEO" -> new CEO(employeeText);
-                default -> () -> 0;
+                default -> new DummyEmployee();
             };
         } else {
-            return () -> 0;
+            return new DummyEmployee();
         }
     }
     public abstract int getSalary();
@@ -78,5 +78,9 @@ public abstract class Employee implements IEmployee {
         }
     }
 
-
+    @Override
+    public int compareTo(IEmployee o) {
+        Employee other = (Employee) o;
+        return this.lastName.compareTo(other.lastName);
+    }
 }
