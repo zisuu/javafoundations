@@ -572,21 +572,21 @@ public class BasicPart1 {
          * Input the second number: 45
          * Result: true
          */
-        Scanner in64 = new Scanner(System.in);
-        System.out.print("Input the first number (between 25 to 75) : ");
-        int x64 = in64.nextInt();
-        System.out.print("Input the second number (between 25 to 75): ");
-        int y64 = in64.nextInt();
-        int result;
-        if (x64 >= 25 && x64 <= 75 && y64 >= 25 && y64 <= 75) {
-            int q64 = x64 % 10;
-            int p64 = y64 % 10;
-            x64 /= 10;
-            y64 /= 10;
-            System.out.println((p64 == q64 || p64 == y64 || x64 == q64 || x64 == y64));
-        } else {
-            System.out.println("must be a valid number between 25 to 75");
-        }
+//        Scanner in64 = new Scanner(System.in);
+//        System.out.print("Input the first number (between 25 to 75) : ");
+//        int x64 = in64.nextInt();
+//        System.out.print("Input the second number (between 25 to 75): ");
+//        int y64 = in64.nextInt();
+//        int result;
+//        if (x64 >= 25 && x64 <= 75 && y64 >= 25 && y64 <= 75) {
+//            int q64 = x64 % 10;
+//            int p64 = y64 % 10;
+//            x64 /= 10;
+//            y64 /= 10;
+//            System.out.println((p64 == q64 || p64 == y64 || x64 == q64 || x64 == y64));
+//        } else {
+//            System.out.println("must be a valid number between 25 to 75");
+//        }
 
         /**
          * 65. Write a Java program to calculate the modules of two numbers without using any inbuilt modulus
@@ -597,7 +597,12 @@ public class BasicPart1 {
          * Input the second number: 7
          * 5
          */
-
+        Scanner in65 = new Scanner(System.in);
+        System.out.print("Input the first number : ");
+        int x65 = in65.nextInt();
+        System.out.print("Input the second number : ");
+        int y65 = in65.nextInt();
+        System.out.println(x65 - (x65 / y65) * y65);
     }
 //    public static boolean test_last_digit54(int p54, int q54, int r54, boolean xyz)
 //    {
