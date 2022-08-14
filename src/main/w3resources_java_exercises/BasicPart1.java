@@ -597,12 +597,50 @@ public class BasicPart1 {
          * Input the second number: 7
          * 5
          */
-        Scanner in65 = new Scanner(System.in);
-        System.out.print("Input the first number : ");
-        int x65 = in65.nextInt();
-        System.out.print("Input the second number : ");
-        int y65 = in65.nextInt();
-        System.out.println(x65 - (x65 / y65) * y65);
+//        Scanner in65 = new Scanner(System.in);
+//        System.out.print("Input the first number : ");
+//        int x65 = in65.nextInt();
+//        System.out.print("Input the second number : ");
+//        int y65 = in65.nextInt();
+//        System.out.println(x65 - (x65 / y65) * y65);
+
+        /**
+         * 66. Write a Java program to compute the sum of the first 100 prime numbers. Go to the editor
+         * Sample Output:
+         *
+         * Sum of the first 100 prime numbers: 24133
+         */
+        /*
+         * In einem boolean[] wird festgehalten, welche Zahlen teilbar sind.
+         * Dies ist einfacher, als festzuhalten, welche Zahlen prim sind, da
+         * boolean-Werte per Default false sind.
+         */
+        boolean[] divisible = new boolean[100 + 1];
+        int primeNumberCounter = 0;
+        for (int i66 = 2; i66 < 100; i66++) {
+            if (!divisible[i66]) {
+                /*
+                 * Wenn i nicht teilbar ist, ist es prim. In dem Fall werden alle
+                 * Vielfachen von i als teilbar markiert.
+                 */
+                primeNumberCounter++;
+                for (int j = 2 * i66; j < divisible.length; j += i66) {
+                    divisible[j] = true;
+                }
+            }
+        }
+        // Nun ist bekannt, wie viele Primzahlen es gibt
+        int[] ergebnis = new int[primeNumberCounter];
+        int ergebnisIndex = 0;
+        // alle nicht teilbaren Zahlen werden in das Ergebnis-Array eingetragen
+        for (int i66 = 2; i66 < divisible.length; i66++) {
+            if (!divisible[i66]) {
+                ergebnis[ergebnisIndex++] = i66;
+            }
+        }
+        for (int i66 = 0; i66 < ergebnis.length; i66++) {
+            System.out.println(ergebnis[i66]);
+        }
     }
 //    public static boolean test_last_digit54(int p54, int q54, int r54, boolean xyz)
 //    {
