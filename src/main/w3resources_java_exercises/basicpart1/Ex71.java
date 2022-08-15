@@ -11,6 +11,8 @@ package w3resources_java_exercises.basicpart1;
  */
 public class Ex71 {
     public static void main(String[] args) {
-
+        String str1 = "Python";
+        String str2 = "Tutorial";
+        System.out.println(str1.substring(1).concat(str2.substring(1)));
     }
 }
