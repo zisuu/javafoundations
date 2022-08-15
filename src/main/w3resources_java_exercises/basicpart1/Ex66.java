@@ -1,4 +1,4 @@
-package w3resources_java_exercises;
+package w3resources_java_exercises.basicpart1;
 import java.util.*;
 
 public class Ex66 {

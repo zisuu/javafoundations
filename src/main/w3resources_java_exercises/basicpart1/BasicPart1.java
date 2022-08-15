@@ -1,4 +1,4 @@
-package w3resources_java_exercises;
+package w3resources_java_exercises.basicpart1;
 
 import javax.swing.text.DateFormatter;
 import java.io.Console;
