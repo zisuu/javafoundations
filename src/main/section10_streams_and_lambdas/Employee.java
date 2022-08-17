@@ -4,10 +4,12 @@ import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+import java.util.function.BiConsumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class Employee implements IEmployee {
+    protected final DateTimeFormatter dtFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
     protected final NumberFormat moneyFormat = NumberFormat.getCurrencyInstance();
     private static  final String PEOPLE_REGEX = "(?<lastName>\\w+),\\s*(?<firstName>\\w+),\\s*(?<dob>\\d{1,2}/\\d{1,2}/\\d{4}),\\s*(?<role>\\w+)(?:,\\s*\\{(?<details>.*)\\})?\\n";
     public static final Pattern PEOPLE_PAT = Pattern.compile(PEOPLE_REGEX);
@@ -15,7 +17,6 @@ public abstract class Employee implements IEmployee {
     protected String lastName;
     protected String firstName;
     protected LocalDate dob;
-    DateTimeFormatter dtFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
 
     protected Employee() {
         peopleMat = null;
@@ -35,22 +36,44 @@ public abstract class Employee implements IEmployee {
 
     public static final IEmployee createEmployee(String employeeText){
         Matcher peopleMat = Employee.PEOPLE_PAT.matcher(employeeText);
-        if (peopleMat.matches()) {
+        if (peopleMat.find()) {
             return switch (peopleMat.group("role")) {
                 case "Programmer" -> new Programmer(employeeText);
                 case "Manager" -> new Manager(employeeText);
                 case "Analyst" -> new Analyst(employeeText);
                 case "CEO" -> new CEO(employeeText);
-                default -> () -> 0;
+                default -> new DummyEmployee();
             };
         } else {
-            return () -> 0;
+            return new DummyEmployee();
         }
     }
     public abstract int getSalary();
 
     public double getBonus(){
         return getSalary() * 1.10;
+    }
+
+    public void greet(BiConsumer<String, String> biConsumer) {
+        String firstName = this.firstName;
+        String lastName = this.lastName;
+        biConsumer.accept(firstName,lastName);
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     @Override
@@ -78,5 +101,9 @@ public abstract class Employee implements IEmployee {
         }
     }
 
-
+    @Override
+    public int compareTo(IEmployee o) {
+        Employee other = (Employee) o;
+        return this.lastName.compareTo(other.lastName);
+    }
 }

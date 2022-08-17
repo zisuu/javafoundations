@@ -42,4 +42,3 @@ public class CEO extends Employee implements Flyer {
         flyer.setIfr(ifr);
     }
 }
-

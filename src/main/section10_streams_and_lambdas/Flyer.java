@@ -11,4 +11,3 @@ public interface Flyer {
 
     void setIfr(boolean ifr);
 }
-

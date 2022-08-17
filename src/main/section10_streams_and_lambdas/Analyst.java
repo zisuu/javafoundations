@@ -1,6 +1,5 @@
 package section10_streams_and_lambdas;
 
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,9 +13,9 @@ public class Analyst extends Employee {
     public Analyst(String personText) {
         super(personText);
         Matcher analystMat = analystPat.matcher(peopleMat.group("details"));
-        if (analystMat.find()) {
-            this.projectCount = Integer.parseInt(analystMat.group("projectCount"));
-        }
+            if (analystMat.find()) {
+                this.projectCount = Integer.parseInt(analystMat.group("projectCount"));
+            }
     }
 
 
@@ -24,4 +23,3 @@ public class Analyst extends Employee {
         return 3500 + projectCount * 2;
     }
 }
-

@@ -28,8 +28,8 @@ public class PeopleMatchingV2 {
             """;
 
             Matcher peopleMat = EmployeeV2.PEOPLE_PAT.matcher(peopleText);
-            Flyer flyer = new CEO("");
-            flyer.fly();
+//            Flyer flyer = new CEO("");
+//            flyer.fly();
 
             int totalSalaries = 0;
             IEmployee employee = null;
@@ -63,13 +63,13 @@ public class PeopleMatchingV2 {
 //                }
 
                 System.out.println(employee.toString());
-                totalSalaries += employee.getSalary();
+//                totalSalaries += employee.getSalary();
             }
-            NumberFormat formatMoney = NumberFormat.getCurrencyInstance();
-            System.out.printf("The total payout should be %s%n", formatMoney.format(totalSalaries));
+//            NumberFormat formatMoney = NumberFormat.getCurrencyInstance();
+//            System.out.printf("The total payout should be %s%n", formatMoney.format(totalSalaries));
 
-            Weirdo larry = new Weirdo("david", "larry", LocalDate.of(1000,10,10));
-            larry.fristName();
+//            Weirdo larry = new Weirdo("david", "larry", LocalDate.of(1000,10,10));
+//            larry.fristName();
         }
 
 

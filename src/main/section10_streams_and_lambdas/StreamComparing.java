@@ -1,8 +1,8 @@
 package section10_streams_and_lambdas;
 
-import java.util.regex.Matcher;
+import java.util.Comparator;
 
-public class StreamsStuffv6 {
+public class StreamComparing {
     public static void main(String[] args) {
         String peopleText = """
         Flinstone, Fred, 1/1/1900, Programmer, {locpd=2500,yoe=10,iq=140}
@@ -29,17 +29,21 @@ public class StreamsStuffv6 {
         Rubble, Betty, 4/4/1915, CEO, {avgStockPrice=300}
         """;
 
-            peopleText
+            int sum = peopleText
                     .lines()
                     .map(Employee::createEmployee)
-                    .forEach(System.out::println);
-                    //.forEach(s -> System.out.println(s.toString()));
+                    .map(e -> (Employee) e)
+                    .sorted(Comparator.comparing(Employee::getLastName)
+                            .thenComparing(Employee::getFirstName)
+                            .thenComparing(Employee::getSalary).reversed())
+                    .mapToInt(StreamComparing::showEmpAndGetSummary)
+                    .sum();
+        System.out.println(sum);
 
-//        Matcher peopleMat = Employee.PEOPLE_PAT.matcher(peopleText);
-//        IEmployee employee = null;
-//        while (peopleMat.find()) {
-//            employee = Employee.createEmployee(peopleMat.group());
-//            System.out.println(employee.toString());
-//        }
+    }
+
+    public static int showEmpAndGetSummary(IEmployee e) {
+        System.out.println(e);
+        return e.getSalary();
     }
 }
