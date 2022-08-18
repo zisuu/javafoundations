@@ -11,8 +11,7 @@ public class BigDataSlow {
     public static void main(String[] args) {
         try {
             long startTime = System.currentTimeMillis();
-            Long result =
-            Files.lines(Path.of("/Users/Dave/Downloads/Hr5m.csv"))
+            Long result = Files.lines(Path.of("/Users/Dave/Downloads/Hr5m.csv"))
                     .skip(1)
 //                    .limit(10)
                     .map(s -> s.split(","))

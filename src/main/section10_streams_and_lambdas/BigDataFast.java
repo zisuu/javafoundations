@@ -11,8 +11,7 @@ public class BigDataFast {
     public static void main(String[] args) {
         try {
             long startTime = System.currentTimeMillis();
-            Long result =
-            Files.lines(Path.of("/Users/Dave/Downloads/Hr5m.csv")).parallel() // use multiple threads to improve speed
+            Long result = Files.lines(Path.of("/Users/Dave/Downloads/Hr5m.csv")).parallel() // use multiple threads to improve speed
                     .skip(1)
 //                    .limit(10)
                     .map(s -> s.split(","))
