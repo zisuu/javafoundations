@@ -52,7 +52,7 @@ public class Ex7 {
 //                        Car::make,
 //                        reducing(BigDecimal.ZERO, Car::price, BigDecimal::add)));
 //
-        // Exercise 7.2 Determine average car price by make
+        // Exercise 7.2.1 Determine average car price by make
 //        Map<String, BigDecimal> result = cars.stream()
 //                .collect(groupingBy(
 //                        Car::make,
@@ -62,17 +62,28 @@ public class Ex7 {
 //                                (sum, count) -> sum.divide(new BigDecimal(count))
 //                        )
 //                ));
-            Map<String, String> result = cars.stream()
-            .collect(groupingBy(
-                    Car::make,
-                    collectingAndThen(
-                        teeing(
-                                reducing(BigDecimal.ZERO, Car::price, BigDecimal::add),
-                                counting(),
-                                (sum, count) -> sum.divide(new BigDecimal(count))
-                        )
-                    , moneyFormat::format)
-            ));
-        System.out.println(result);
+        // Exercise 7.2.2
+//            Map<String, String> result = cars.stream()
+//            .collect(groupingBy(
+//                    Car::make,
+//                    collectingAndThen(
+//                        teeing(
+//                                reducing(BigDecimal.ZERO, Car::price, BigDecimal::add),
+//                                counting(),
+//                                (sum, count) -> sum.divide(new BigDecimal(count))
+//                        )
+//                    , moneyFormat::format)
+//            ));
+        // Exercise 7.3
+//        Map<Year, Map<String, Long>> result = cars.stream()
+//                .collect(groupingBy(Car::year, groupingBy(Car::make, counting())));
+//
+//        System.out.println(result);
+
+        // Exercise 7.4
+        Map<String, Integer> countsByMake = new HashMap<>();
+        cars.stream()
+                .forEach(car -> countsByMake.merge(car.make, 1, Integer::sum));
+        System.out.println(countsByMake);
     }
 }
