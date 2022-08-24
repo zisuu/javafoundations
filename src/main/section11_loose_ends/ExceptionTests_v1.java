@@ -1,13 +1,14 @@
 package section11_loose_ends;
 
-public class ExceptionTests {
+public class ExceptionTests_v1 {
     public static void main(String[] args) {
         String[] array = {"one", "two", "three"};
-        int num = 1;
+        int num = 0;
         try {
             System.out.println(array.length / num);
             System.out.println(array[3]);
-        } catch (Exception e) {
+        } catch (ArrayIndexOutOfBoundsException | ArithmeticException e ) {
+            System.out.printf("Exception type: %s. Message: %s%n", e.getClass(), e.getMessage());
             e.printStackTrace();
         }
         System.out.println("You made it to the end");
