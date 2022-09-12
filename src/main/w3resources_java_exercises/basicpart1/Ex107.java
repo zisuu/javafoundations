@@ -7,17 +7,14 @@ import java.util.Arrays;
  */
 public class Ex107 {
     public static void main(String[] args) {
-        Integer[] myNumbers = {11, 15, 13, 10, 45, 20};
+        Integer[] myNumbers = {11, 15, 16, 17, 45, 20};
 
-        Integer[] result = new Integer[myNumbers.length];
-        for (int i = 0; i < myNumbers.length; i++) {
-            if (i == myNumbers.length -1) {
-                result[myNumbers.length-1] = myNumbers[0];
-            } else {
-                result[i] = myNumbers[i+1];
+        Boolean result = false;
+        for (int i = 0; i < myNumbers.length -2; i++) {
+            if (myNumbers[i] == (myNumbers[i+1] -1) && myNumbers[i] == (myNumbers[i+2] -2)) {
+                    result = true;
+                }
             }
-        }
-        System.out.println(Arrays.toString(result));
-
+        System.out.println(result);
     }
 }
