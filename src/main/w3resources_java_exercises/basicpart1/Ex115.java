@@ -14,12 +14,20 @@ public class Ex115 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Input a positive integer: ");
-        String input = in.nextLine();
-        String[] numberAsStringArray = input.split(",");
-        int[] numbers = new int [numberAsStringArray.length];
-        for (int i = 0; i < numberAsStringArray.length; i++) {
-            numbers[i] = Integer.parseInt(numberAsStringArray[i]);
+        int input = in.nextInt();
+        String text = String.valueOf(input);
+        int inputLength = String.valueOf(input).length();
+        int[] numbers = new int [inputLength];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = Integer.parseInt(text.substring(i,i+1));
         }
         System.out.println(Arrays.toString(numbers));
+        for (int i = 0; i < inputLength-1; i++) {
+            if (numbers[i] == numbers[inputLength-(i+1)]) {
+                System.out.println(i + " = true");
+            } else {
+                break;
+            }
+        }
     }
 }
