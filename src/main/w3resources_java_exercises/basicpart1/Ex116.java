@@ -7,6 +7,14 @@ package w3resources_java_exercises.basicpart1;
  */
 public class Ex116 {
     public static void main(String[] args) {
-
+        for (int i = 0; i < 101; i++) {
+            if (i % 5 == 0 && i % 3 == 0) {
+                System.out.println(i + " = fizz buzz");
+            } else if (i % 3 == 0) {
+                System.out.println(i + " = Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println(i + " = Buzz");
+            }
+        }
     }
 }
